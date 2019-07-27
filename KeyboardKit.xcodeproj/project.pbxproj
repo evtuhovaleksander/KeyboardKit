@@ -130,7 +130,6 @@
 		84FFAD2F228A189000FB4998 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FCD01D2059E0CD0072157A /* UIView+Nib.swift */; };
 		DEC6CACF22ECB90800431774 /* KB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9422ECB90700431774 /* KB.swift */; };
 		DEC6CAD122ECB90800431774 /* DemoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9722ECB90700431774 /* DemoButton.swift */; };
-		DEC6CAD222ECB90800431774 /* DemoButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC6CA9822ECB90700431774 /* DemoButton.xib */; };
 		DEC6CAD322ECB90800431774 /* DemoAutocompleteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9922ECB90700431774 /* DemoAutocompleteLabel.swift */; };
 		DEC6CAD422ECB90800431774 /* DemoAutocompleteSuggestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9B22ECB90700431774 /* DemoAutocompleteSuggestionProvider.swift */; };
 		DEC6CAD622ECB90800431774 /* OpenAlfabeticKeyboardEN.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9D22ECB90700431774 /* OpenAlfabeticKeyboardEN.swift */; };
@@ -142,6 +141,7 @@
 		DEC6CAFE22ECB90800431774 /* OpenKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CACA22ECB90800431774 /* OpenKeyboardViewController.swift */; };
 		DEC6CAFF22ECB90800431774 /* OpenAlfabeticKeyboardRU.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CACB22ECB90800431774 /* OpenAlfabeticKeyboardRU.swift */; };
 		DEC6CB0222ECB90800431774 /* OpenKeyboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CACE22ECB90800431774 /* OpenKeyboardType.swift */; };
+		DEC6CB0422ECC90C00431774 /* DemoButton.xib in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9822ECB90700431774 /* DemoButton.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +182,15 @@
 				45FB51BC20495E1C009D5806 /* KeyboardKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEC6CB0322ECC8F900431774 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -686,6 +695,7 @@
 				45FB517120495C73009D5806 /* Frameworks */,
 				45FB517220495C73009D5806 /* Headers */,
 				45FB517320495C73009D5806 /* Resources */,
+				DEC6CB0322ECC8F900431774 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -789,7 +799,6 @@
 			files = (
 				DEC6CAE222ECB90800431774 /* Colors.xcassets in Resources */,
 				DEC6CAE322ECB90800431774 /* Images.xcassets in Resources */,
-				DEC6CAD222ECB90800431774 /* DemoButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +902,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC6CB0422ECC90C00431774 /* DemoButton.xib in Sources */,
 				DEC6CAFE22ECB90800431774 /* OpenKeyboardViewController.swift in Sources */,
 				DEC6CB0222ECB90800431774 /* OpenKeyboardType.swift in Sources */,
 				84C259462290088D00CEE594 /* KeyboardType.swift in Sources */,

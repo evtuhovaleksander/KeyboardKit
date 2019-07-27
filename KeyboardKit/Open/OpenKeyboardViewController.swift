@@ -272,8 +272,8 @@ open class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
         openKeyboardViewController.setNewKeyboardAlhabeticType(uppercased: state.isUppercased)
     }
     
-    var openKeyboardViewController: OpenKeyboardViewController
-    var openKeyboardDelegate: OpenKeyboardDelegate?
+    open  var openKeyboardViewController: OpenKeyboardViewController
+    open var openKeyboardDelegate: OpenKeyboardDelegate?
     
     public init(
         openKeyboardViewController: OpenKeyboardViewController,
