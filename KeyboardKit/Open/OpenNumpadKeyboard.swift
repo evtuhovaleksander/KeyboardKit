@@ -13,6 +13,8 @@ class OpenNumpadKeyboard: OpenKeyboardType {
     
     init(){}
     
+    open var buttonObtainer: (()->DemoButton)?
+    
     func actions(
         in viewController: OpenKeyboardViewController
         ) -> KeyboardActionRows {
@@ -54,7 +56,7 @@ extension OpenNumpadKeyboard: OpenKeyboardTypeDelegate {
         if case let .customSpacing(width) = action {
             return KeyboardSpacerView(width: CGFloat(width))
         }
-        let view: DemoButton = DemoButton.fromNib()
+        let view: DemoButton = buttonObtainer?() ?? DemoButton.fromNib()
         if .backspace == action {
             view.setup(with: action, in: viewController, distribution: distribution, borderless: true)
         } else {

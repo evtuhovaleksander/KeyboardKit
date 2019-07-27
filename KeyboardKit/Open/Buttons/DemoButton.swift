@@ -18,9 +18,9 @@
 import UIKit
 import KeyboardKit
 
-class DemoButton: KeyboardButtonView {
+open class DemoButton: KeyboardButtonView {
     
-    public func setup(
+    open func setup(
         with action: KeyboardAction,
         in viewController: KeyboardInputViewController,
         distribution: UIStackView.Distribution = .fillEqually,

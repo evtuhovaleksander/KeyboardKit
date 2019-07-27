@@ -65,20 +65,6 @@ public extension UIView {
     }
     static func fromNibTyped<T: UIView>() -> T {
         let nibName = T.defaultNibName
-        
-        let podBundle = Bundle(for: T.self)
-        if let bundleURL = podBundle.url(forResource: "KeyboardKit", withExtension: "bundle") {
-            if let bundle = Bundle(url: bundleURL) {
-                return bundle.loadNibNamed(nibName, owner: nil, options: nil)![0] as! T
-            } else {
-                assertionFailure("Could not load the bundle")
-            }
-        } else {
-            assertionFailure("Could not create a path to the bundle")
-        }
-
-        
-        
         let bundle = Bundle(for: T.self)
         let nibs = bundle.loadNibNamed(nibName, owner: nil, options: nil)
         guard let nib = nibs?[0] as? T else { fatalError("initWithDefaultNib failed") }
