@@ -14,12 +14,12 @@ public protocol OpenKeyboardDelegate {
     func handleTap(on action: KeyboardAction, view: UIView)
 }
 
-class OpenKeyboardViewController: KeyboardInputViewController {
+open class OpenKeyboardViewController: KeyboardInputViewController {
     
-    var keyboardShiftState = KeyboardShiftState.lowercased
+    open var keyboardShiftState = KeyboardShiftState.lowercased
     
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 //        if
 //            keyboardActionHandler == nil,
@@ -29,12 +29,12 @@ class OpenKeyboardViewController: KeyboardInputViewController {
 //        autocompleteBugFixTimer = createAutocompleteBugFixTimer()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupKeyboard()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         setupKeyboard(for: size)
     }
@@ -60,7 +60,7 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     // MARK: - Properties
     
-    var isNumericPad = true {
+    open var isNumericPad = true {
         didSet {
             guard isNumericPad else { return }
             _keyboardType = .numPad
@@ -68,21 +68,21 @@ class OpenKeyboardViewController: KeyboardInputViewController {
         }
     }
     
-    let alerter = ToastAlert()
+    public let alerter = ToastAlert()
     
-    var autocompleteBugFixTimer: AutocompleteBugFixTimer?
+    open var autocompleteBugFixTimer: AutocompleteBugFixTimer?
     
-    var _keyboardType = KeyboardType.numPad {//KeyboardType.alphabetic(ru: true, uppercased: false) {
+    open var _keyboardType = KeyboardType.numPad {//KeyboardType.alphabetic(ru: true, uppercased: false) {
         didSet {
             setupKeyboard()
         }
     }
     
-    var keyboardType: KeyboardType {
+    open var keyboardType: KeyboardType {
         return _keyboardType
     }
     
-    func setNewKeyboardAlhabeticType(ru: Bool? = nil, uppercased: Bool? = nil) {
+    open func setNewKeyboardAlhabeticType(ru: Bool? = nil, uppercased: Bool? = nil) {
         if case let .alphabetic(oldRu, oldUppercased) = keyboardType {
             var newRu = oldRu
             var newUppercased = oldUppercased
@@ -265,7 +265,7 @@ private extension OpenKeyboardViewController  {
     }
 }
 
-class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
+open class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
     
     func switchToAlphabeticKeyboard(_ state: KeyboardShiftState) {
         openKeyboardViewController.keyboardShiftState = state
@@ -297,7 +297,7 @@ class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
         (view as? KeyboardButton)?.animateStandardTap()
     }
     
-    override func handleLongPress(on action: KeyboardAction, view: UIView) {
+    override open  func handleLongPress(on action: KeyboardAction, view: UIView) {
         animateButtonTap(for: view)
         switch action {
         case .shift: switchToAlphabeticKeyboard(.capsLocked)
@@ -306,7 +306,7 @@ class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
         openKeyboardDelegate?.handleLongPress(on: action, view: view)
     }
     
-    override func handleTap(on action: KeyboardAction, view: UIView) {
+    override  open func handleTap(on action: KeyboardAction, view: UIView) {
         animateButtonTap(for: view)
         openInputViewController = openKeyboardViewController.openInputViewController
         super.handleTap(on: action, view: view)
