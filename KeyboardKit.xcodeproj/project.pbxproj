@@ -142,6 +142,8 @@
 		DEC6CAFF22ECB90800431774 /* OpenAlfabeticKeyboardRU.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CACB22ECB90800431774 /* OpenAlfabeticKeyboardRU.swift */; };
 		DEC6CB0222ECB90800431774 /* OpenKeyboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CACE22ECB90800431774 /* OpenKeyboardType.swift */; };
 		DEC6CB0422ECC90C00431774 /* DemoButton.xib in Sources */ = {isa = PBXBuildFile; fileRef = DEC6CA9822ECB90700431774 /* DemoButton.xib */; };
+		DEC6CB0522ECC98B00431774 /* DemoButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC6CA9822ECB90700431774 /* DemoButton.xib */; };
+		DEC6CB0622ECC98F00431774 /* DemoButton.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = DEC6CA9822ECB90700431774 /* DemoButton.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				DEC6CB0622ECC98F00431774 /* DemoButton.xib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,6 +800,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC6CB0522ECC98B00431774 /* DemoButton.xib in Resources */,
 				DEC6CAE222ECB90800431774 /* Colors.xcassets in Resources */,
 				DEC6CAE322ECB90800431774 /* Images.xcassets in Resources */,
 			);
