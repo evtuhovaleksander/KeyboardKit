@@ -72,9 +72,11 @@ open class KeyboardInputViewController: UIViewController {
 private extension KeyboardInputViewController {
     
     func addSwitchKeyboardGesture(to button: KeyboardButton) {
-        guard let button = button as? UIButton else { return }
-        //bip
-        //button.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+        guard
+            let button = button as? UIButton,
+            let openInputViewController = openInputViewController
+        else { return }
+        button.addTarget(openInputViewController, action: #selector(openInputViewController.handleInputModeList(from:with:)), for: .allTouchEvents)
     }
     
     func addLongPressGesture(to button: KeyboardButton) {

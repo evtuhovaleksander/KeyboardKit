@@ -16,7 +16,7 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: self)
+        keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: UIInputViewController())
 //        autocompleteBugFixTimer = createAutocompleteBugFixTimer()
     }
     
