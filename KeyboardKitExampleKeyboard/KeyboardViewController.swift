@@ -16,8 +16,8 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: self)
-        autocompleteBugFixTimer = createAutocompleteBugFixTimer()
+//        keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: self)
+//        autocompleteBugFixTimer = createAutocompleteBugFixTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,20 +33,20 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     // MARK: - Keyboard Functionality
     
-    override func textDidChange(_ textInput: UITextInput?) {
-        super.textDidChange(textInput)
-        requestAutocompleteSuggestions()
-    }
-    
-    override func selectionWillChange(_ textInput: UITextInput?) {
-        super.selectionWillChange(textInput)
-        autocompleteToolbar.reset()
-    }
-    
-    override func selectionDidChange(_ textInput: UITextInput?) {
-        super.selectionDidChange(textInput)
-        autocompleteToolbar.reset()
-    }
+//    override func textDidChange(_ textInput: UITextInput?) {
+//        super.textDidChange(textInput)
+//        requestAutocompleteSuggestions()
+//    }
+//
+//    override func selectionWillChange(_ textInput: UITextInput?) {
+//        super.selectionWillChange(textInput)
+//        autocompleteToolbar.reset()
+//    }
+//
+//    override func selectionDidChange(_ textInput: UITextInput?) {
+//        super.selectionDidChange(textInput)
+//        autocompleteToolbar.reset()
+//    }
     
     
     // MARK: - Properties
@@ -100,29 +100,29 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     // MARK: - Autocomplete
     
-    private lazy var autocompleteProvider = DemoAutocompleteSuggestionProvider()
-    
-    private lazy var autocompleteToolbar: AutocompleteToolbar = {
-        let proxy = textDocumentProxy
-        let toolbar = AutocompleteToolbar(
-            buttonCreator: { DemoAutocompleteLabel(word: $0, proxy: proxy) }
-        )
-        toolbar.update(with: ["foo", "bar", "baz"])
-        return toolbar
-    }()
+//    private lazy var autocompleteProvider = DemoAutocompleteSuggestionProvider()
+//
+//    private lazy var autocompleteToolbar: AutocompleteToolbar = {
+//        let proxy = textDocumentProxy
+//        let toolbar = AutocompleteToolbar(
+//            buttonCreator: { DemoAutocompleteLabel(word: $0, proxy: proxy) }
+//        )
+//        toolbar.update(with: ["foo", "bar", "baz"])
+//        return toolbar
+//    }()
     
     private func requestAutocompleteSuggestions() {
-        let word = textDocumentProxy.currentWord ?? ""
-        autocompleteProvider.provideAutocompleteSuggestions(for: word) { [weak self] in
-            switch $0 {
-            case .failure(let error): print(error.localizedDescription)
-            case .success(let result): self?.autocompleteToolbar.update(with: result)
-            }
-        }
+//        let word = textDocumentProxy.currentWord ?? ""
+//        autocompleteProvider.provideAutocompleteSuggestions(for: word) { [weak self] in
+//            switch $0 {
+//            case .failure(let error): print(error.localizedDescription)
+//            case .success(let result): self?.autocompleteToolbar.update(with: result)
+//            }
+//        }
     }
     
     private func resetAutocompleteSuggestions() {
-        autocompleteToolbar.reset()
+//        autocompleteToolbar.reset()
     }
     
     var openAlfabeticKeyboardRU: OpenAlfabeticKeyboardRU!
@@ -251,7 +251,7 @@ private extension OpenKeyboardViewController  {
         var rows = actionRows.map {
             buttonRow(for: $0, distribution: distribution)
         }
-        rows.insert(autocompleteToolbar, at: 0)
+        //rows.insert(autocompleteToolbar, at: 0)
         return rows
     }
 }

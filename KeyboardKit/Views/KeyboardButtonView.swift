@@ -34,7 +34,7 @@ open class KeyboardButtonView: UIButton, KeyboardButton {
         in viewController: KeyboardInputViewController) {
         self.action = action
         self.secondaryAction = secondaryAction
-        self.keyboardAppearance = viewController.textDocumentProxy.keyboardAppearance ?? .default
+        self.keyboardAppearance = viewController.openInputViewController?.textDocumentProxy.keyboardAppearance ?? .default
         viewController.addKeyboardGestures(to: self)
     }
 }

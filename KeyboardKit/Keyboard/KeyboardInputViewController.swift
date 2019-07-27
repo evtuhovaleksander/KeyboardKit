@@ -6,38 +6,14 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This class provides keyboards input view controllers with a
- basic set of functionality. You can subclass this class and
- override anything to modify the standard behavior.
- 
- The class has a `keyboardActionHandler` to which you should
- delegate all triggered keyboard actions. It uses a standard
- `StandardKeyboardActionHandler` by default, but you can set
- `keyboardActionHandler` to any `KeyboardActionHandler`.
- 
- To apply standard gestures to a keyboard button, simply use
- `addKeyboardGestures(to:)`.
- 
- `viewWillSyncWithTextDocumentProxy()` is triggered when the
- view controller will appear or when the text document proxy
- text changes. Use this to apply any style you think matches
- the text document proxy configuration.
- 
- `keyboardStackView` is a regular `UIStackView` to which you
- can add any views and configure in any way you like. If you
- add `KeyboardStackViewComponent`s to it, however, they will
- make sure the stack view is properly resized, in a way that
- also resizes the keyboard extension.
- 
- */
+
 
 import UIKit
 
-open class KeyboardInputViewController: UIInputViewController {
+open class KeyboardInputViewController: UIViewController {
     
-    
+    open var openInputViewController: UIInputViewController?
+    open var needsInputModeSwitchKey: Bool = true
     // MARK: - View Controller Lifecycle
     
     open override func viewDidLoad() {
@@ -55,9 +31,7 @@ open class KeyboardInputViewController: UIInputViewController {
     
     // MARK: - Properties
     
-    open lazy var keyboardActionHandler: KeyboardActionHandler = {
-        StandardKeyboardActionHandler(inputViewController: self)
-    }()
+    open var keyboardActionHandler: KeyboardActionHandler?
     
     
     // MARK: - View Properties
@@ -85,11 +59,11 @@ open class KeyboardInputViewController: UIInputViewController {
     
     
     // MARK: - UITextInputDelegate
-    
-    open override func textWillChange(_ textInput: UITextInput?) {
-        super.textWillChange(textInput)
-        viewWillSyncWithTextDocumentProxy()
-    }
+    //bipbipbip
+    //    open override func textWillChange(_ textInput: UITextInput?) {
+    //        super.textWillChange(textInput)
+    //        viewWillSyncWithTextDocumentProxy()
+    //    }
 }
 
 
@@ -99,7 +73,8 @@ private extension KeyboardInputViewController {
     
     func addSwitchKeyboardGesture(to button: KeyboardButton) {
         guard let button = button as? UIButton else { return }
-        button.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+        //bip
+        //button.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
     }
     
     func addLongPressGesture(to button: KeyboardButton) {
