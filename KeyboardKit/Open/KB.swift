@@ -8,11 +8,11 @@
 
 import KeyboardKit
 
-class KB: UIInputViewController {
-    override func loadView() {
+open class KB: UIInputViewController {
+    override open func loadView() {
         super.loadView()
     }
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         let child = OpenKeyboardViewController()
         child.openInputViewController = self

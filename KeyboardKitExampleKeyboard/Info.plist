@@ -36,7 +36,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.keyboard-service</string>
 		<key>NSExtensionPrincipalClass</key>
-		<string>$(PRODUCT_MODULE_NAME).KB</string>
+		<string>$(PRODUCT_MODULE_NAME).KB2</string>
 	</dict>
 </dict>
 </plist>

@@ -54,7 +54,7 @@ extension OpenNumpadKeyboard: OpenKeyboardTypeDelegate {
         if case let .customSpacing(width) = action {
             return KeyboardSpacerView(width: CGFloat(width))
         }
-        let view: DemoButton = DemoButton.fromNib(owner: viewController)
+        let view: DemoButton = DemoButton.fromNib()
         if .backspace == action {
             view.setup(with: action, in: viewController, distribution: distribution, borderless: true)
         } else {
