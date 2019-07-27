@@ -9,6 +9,11 @@
 import UIKit
 import KeyboardKit
 
+public protocol OpenKeyboardDelegate {
+    func handleLongPress(on action: KeyboardAction, view: UIView)
+    func handleTap(on action: KeyboardAction, view: UIView)
+}
+
 class OpenKeyboardViewController: KeyboardInputViewController {
     
     var keyboardShiftState = KeyboardShiftState.lowercased
@@ -16,11 +21,11 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if
-            keyboardActionHandler == nil,
-            let openInputViewController = openInputViewController {
-            keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: openInputViewController)
-        }
+//        if
+//            keyboardActionHandler == nil,
+//            let openInputViewController = openInputViewController {
+//            keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: openInputViewController)
+//        }
 //        autocompleteBugFixTimer = createAutocompleteBugFixTimer()
     }
     
@@ -268,11 +273,14 @@ class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
     }
     
     var openKeyboardViewController: OpenKeyboardViewController
+    var openKeyboardDelegate: OpenKeyboardDelegate?
     
     public init(
         openKeyboardViewController: OpenKeyboardViewController,
-        inputViewController: UIInputViewController
+        inputViewController: UIInputViewController,
+        openKeyboardDelegate: OpenKeyboardDelegate?
         ) {
+        self.openKeyboardDelegate = openKeyboardDelegate
         self.openKeyboardViewController = openKeyboardViewController
         super.init(
             inputViewController: inputViewController,
@@ -295,11 +303,11 @@ class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
         case .shift: switchToAlphabeticKeyboard(.capsLocked)
         default: super.handleLongPress(on: action, view: view)
         }
+        openKeyboardDelegate?.handleLongPress(on: action, view: view)
     }
     
     override func handleTap(on action: KeyboardAction, view: UIView) {
         animateButtonTap(for: view)
-        print(openInputViewController)
         openInputViewController = openKeyboardViewController.openInputViewController
         super.handleTap(on: action, view: view)
         switch action {
@@ -319,6 +327,7 @@ class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
         case .custom(name: "en"): openKeyboardViewController.setNewKeyboardAlhabeticType(ru: false)
         default: break
         }
+        handleTap(on: action, view: view)
     }
 }
 
