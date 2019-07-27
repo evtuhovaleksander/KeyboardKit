@@ -20,17 +20,28 @@ import KeyboardKit
 
 class DemoButton: KeyboardButtonView {
     
-    public func setup(with action: KeyboardAction, in viewController: KeyboardInputViewController, distribution: UIStackView.Distribution = .fillEqually) {
+    public func setup(
+        with action: KeyboardAction,
+        in viewController: KeyboardInputViewController,
+        distribution: UIStackView.Distribution = .fillEqually,
+        borderless: Bool = false
+    ) {
         super.setup(with: action, in: viewController)
         backgroundColor = .clearTappable
-        buttonView?.backgroundColor = action.buttonColor(for: viewController)
+        
         DispatchQueue.main.async { self.image?.image = action.buttonImage }
         textLabel?.font = action.buttonFont
         textLabel?.text = action.buttonText
         textLabel?.textColor = action.tintColor(in: viewController)
         buttonView?.tintColor = action.tintColor(in: viewController)
-        width = action.buttonWidth(for: distribution)
-        applyShadow(Shadow(alpha: 0.5, blur: 1, spread: 0, x: 1, y: 1))
+        width = 10.0//action.buttonWidth(for: distribution)
+        if borderless {
+            buttonView?.backgroundColor = viewController.view.backgroundColor
+            buttonView?.layer.borderWidth = 0.0
+        } else {
+            buttonView?.backgroundColor = action.buttonColor(for: viewController)
+            applyShadow(Shadow(alpha: 0.5, blur: 1, spread: 0, x: 0, y: 1))
+        }
     }
     
     @IBOutlet weak var buttonView: UIView? {
@@ -84,6 +95,8 @@ private extension KeyboardAction {
         case .newLine: return "return"
         case .shift, .shiftDown: return "⇧"
         case .space: return "space"
+        case .custom(name: "en"): return "en"
+        case .custom(name: "ru"): return "ru"
         case .switchToKeyboard(let type): return buttonText(for: type)
         default: return nil
         }
@@ -97,20 +110,6 @@ private extension KeyboardAction {
         case .symbolic: return "#+="
         default: return "???"
         }
-    }
-    
-    var buttonWidth: CGFloat {
-        switch self {
-        case .none: return 10
-        case .shift, .shiftDown, .backspace: return 60
-        case .space: return 100
-        default: return 50
-        }
-    }
-    
-    func buttonWidth(for distribution: UIStackView.Distribution) -> CGFloat {
-        let adjust = distribution == .fillProportionally
-        return adjust ? buttonWidth * 100 : buttonWidth
     }
     
     func tintColor(in viewController: KeyboardInputViewController) -> UIColor {

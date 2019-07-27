@@ -17,16 +17,16 @@ import KeyboardKit
  other languages, device types etc.
  
  */
-protocol DemoKeyboard {}
-
-extension DemoKeyboard {
-    
-    static func bottomActions(
-        leftmost: KeyboardAction,
-        for viewController: KeyboardViewController) -> KeyboardActionRow {
-        let includeEmojiAction = viewController.keyboardType != .emojis
-        let switcher = viewController.keyboardSwitcherAction
-        let actions = [leftmost, switcher, .space, .switchToKeyboard(.emojis), .newLine]
-        return includeEmojiAction ? actions : actions.filter { $0 != .switchToKeyboard(.emojis) }
-    }
-}
+//protocol DemoKeyboard {}
+//
+//extension DemoKeyboard {
+//    
+//    static func bottomActions(
+//        leftmost: KeyboardAction,
+//        for viewController: KeyboardViewController) -> KeyboardActionRow {
+//        let includeEmojiAction = viewController.keyboardType != .emojis
+//        let switcher = viewController.keyboardSwitcherAction
+//        let actions = [leftmost, switcher, .space, .switchToKeyboard(.emojis), .newLine]
+//        return includeEmojiAction ? actions : actions.filter { $0 != .switchToKeyboard(.emojis) }
+//    }
+//}

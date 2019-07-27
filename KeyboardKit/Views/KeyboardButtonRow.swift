@@ -30,6 +30,9 @@ open class KeyboardButtonRow: UIView, KeyboardStackViewComponent {
         self.height = height
         buttonStackView.alignment = alignment
         buttonStackView.distribution = distribution
+        
+        
+        
         let buttons = actions.map { buttonCreator($0) }
         buttonStackView.addArrangedSubviews(buttons)
     }

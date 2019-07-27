@@ -48,7 +48,8 @@ public enum KeyboardAction: Equatable {
     space,
     switchKeyboard,
     switchToKeyboard(KeyboardType),
-    tab
+    tab,
+    customSpacing(width: Int)
 }
 
 
@@ -78,6 +79,7 @@ public extension KeyboardAction {
         case .switchKeyboard: return nil
         case .switchToKeyboard: return nil
         case .tab: return nil
+        case .customSpacing(width: _): return nil
         }
     }
     
@@ -103,6 +105,7 @@ public extension KeyboardAction {
         case .switchKeyboard: return nil
         case .switchToKeyboard: return nil
         case .tab: return { proxy in proxy?.insertText("\t") }
+        case .customSpacing(width: _): return nil
         }
     }
 }

@@ -188,6 +188,11 @@
 		84FFAD2F228A189000FB4998 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FCD01D2059E0CD0072157A /* UIView+Nib.swift */; };
 		84FFAD31228A1A6500FB4998 /* NumericKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAD30228A1A6500FB4998 /* NumericKeyboard.swift */; };
 		84FFAD33228A1BA600FB4998 /* SymbolicKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAD32228A1BA600FB4998 /* SymbolicKeyboard.swift */; };
+		DE214DD222EC470200724BF1 /* OpenAlfabeticKeyboardRU.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE214DD122EC470200724BF1 /* OpenAlfabeticKeyboardRU.swift */; };
+		DE214DF422EC7A5500724BF1 /* OpenAlfabeticKeyboardEN.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE214DF322EC7A5500724BF1 /* OpenAlfabeticKeyboardEN.swift */; };
+		DE214DF622EC8E9500724BF1 /* OpenNumericKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE214DF522EC8E9500724BF1 /* OpenNumericKeyboard.swift */; };
+		DE214DF822EC937300724BF1 /* OpenNumpadKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE214DF722EC937300724BF1 /* OpenNumpadKeyboard.swift */; };
+		DE214DFA22EC9CD400724BF1 /* OpenKeyboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE214DF922EC9CD400724BF1 /* OpenKeyboardType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,6 +426,11 @@
 		84FFAD2D228994AE00FB4998 /* AlphabeticKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabeticKeyboard.swift; sourceTree = "<group>"; };
 		84FFAD30228A1A6500FB4998 /* NumericKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboard.swift; sourceTree = "<group>"; };
 		84FFAD32228A1BA600FB4998 /* SymbolicKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolicKeyboard.swift; sourceTree = "<group>"; };
+		DE214DD122EC470200724BF1 /* OpenAlfabeticKeyboardRU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAlfabeticKeyboardRU.swift; sourceTree = "<group>"; };
+		DE214DF322EC7A5500724BF1 /* OpenAlfabeticKeyboardEN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAlfabeticKeyboardEN.swift; sourceTree = "<group>"; };
+		DE214DF522EC8E9500724BF1 /* OpenNumericKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNumericKeyboard.swift; sourceTree = "<group>"; };
+		DE214DF722EC937300724BF1 /* OpenNumpadKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNumpadKeyboard.swift; sourceTree = "<group>"; };
+		DE214DF922EC9CD400724BF1 /* OpenKeyboardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenKeyboardType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +598,11 @@
 				84511D39227110BC00904FE0 /* DemoKeyboardActionHandler.swift */,
 				45FB51AD20495CB1009D5806 /* Info.plist */,
 				45FB51AB20495CB1009D5806 /* KeyboardViewController.swift */,
+				DE214DD122EC470200724BF1 /* OpenAlfabeticKeyboardRU.swift */,
+				DE214DF322EC7A5500724BF1 /* OpenAlfabeticKeyboardEN.swift */,
+				DE214DF722EC937300724BF1 /* OpenNumpadKeyboard.swift */,
+				DE214DF522EC8E9500724BF1 /* OpenNumericKeyboard.swift */,
+				DE214DF922EC9CD400724BF1 /* OpenKeyboardType.swift */,
 			);
 			path = KeyboardKitExampleKeyboard;
 			sourceTree = "<group>";
@@ -959,7 +974,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45FB518920495C73009D5806 /* Build configuration list for PBXNativeTarget "KeyboardKit" */;
 			buildPhases = (
-				450B1C4420699FFB006A2F18 /* [SwiftLint] */,
 				45FB517020495C73009D5806 /* Sources */,
 				45FB517120495C73009D5806 /* Frameworks */,
 				45FB517220495C73009D5806 /* Headers */,
@@ -1178,20 +1192,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		450B1C4420699FFB006A2F18 /* [SwiftLint] */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[SwiftLint]";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint is not installed.\"\nfi\n";
-		};
 		84FFACE32283ED4A00FB4998 /* [SwiftGen] */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1343,9 +1343,14 @@
 				45FB51AC20495CB1009D5806 /* KeyboardViewController.swift in Sources */,
 				84FFAD33228A1BA600FB4998 /* SymbolicKeyboard.swift in Sources */,
 				84511D3A227110BC00904FE0 /* DemoKeyboardActionHandler.swift in Sources */,
+				DE214DFA22EC9CD400724BF1 /* OpenKeyboardType.swift in Sources */,
 				84851A682277AE9300477705 /* DemoButton.swift in Sources */,
 				84FFAD2E228994AE00FB4998 /* AlphabeticKeyboard.swift in Sources */,
+				DE214DF622EC8E9500724BF1 /* OpenNumericKeyboard.swift in Sources */,
+				DE214DF422EC7A5500724BF1 /* OpenAlfabeticKeyboardEN.swift in Sources */,
+				DE214DF822EC937300724BF1 /* OpenNumpadKeyboard.swift in Sources */,
 				84289E7022CF310D00D9B2AC /* DemoAutocompleteSuggestionProvider.swift in Sources */,
+				DE214DD222EC470200724BF1 /* OpenAlfabeticKeyboardRU.swift in Sources */,
 				84FFAD1D2283EE3700FB4998 /* Assets.swift in Sources */,
 				45D1495420586280009EF441 /* EmojiKeyboard.swift in Sources */,
 			);

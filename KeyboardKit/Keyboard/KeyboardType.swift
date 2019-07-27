@@ -21,10 +21,11 @@ import UIKit
 public enum KeyboardType: Equatable {
 
     case
-    alphabetic(uppercased: Bool),
+    alphabetic(ru: Bool, uppercased: Bool),
     numeric,
     symbolic,
     email,
     emojis,
-    custom(_ name: String)
+    custom(_ name: String),
+    numPad
 }
