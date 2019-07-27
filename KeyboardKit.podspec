@@ -14,7 +14,12 @@ KeyboardKit is a Swift library that can be used to create iOS keyboard extension
   s.author           = { 'Daniel Saidi' => 'daniel.saidi@gmail.com' }
   s.source           = { :git => 'https://github.com/evtuhovaleksander/KeyboardKit', :tag => '2.4.2'}
   s.social_media_url = 'https://twitter.com/danielsaidi'
-
+  s.resources = "KeyboardKit/**/*.xib"
+    s.resource_bundles = {
+    'KeyboardKit' => [
+    'Pod/**/*.xib'
+    ]
+}
   s.ios.deployment_target = '11.0'
 
   s.source_files = 'KeyboardKit/**/*.swift'
