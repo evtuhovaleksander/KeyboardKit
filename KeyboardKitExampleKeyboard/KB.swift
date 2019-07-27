@@ -16,6 +16,7 @@ class KB: UIInputViewController {
         super.viewDidLoad()
         let child = OpenKeyboardViewController()
         child.openInputViewController = self
+        child.keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: child, inputViewController: UIInputViewController())
         view.addSubview(child.view, fill: true)
         addChild(child)
         child.didMove(toParent: parent)

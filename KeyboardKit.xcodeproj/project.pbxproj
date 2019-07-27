@@ -72,7 +72,7 @@
 		45FB519B20495C8A009D5806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FB519920495C8A009D5806 /* Main.storyboard */; };
 		45FB519D20495C8A009D5806 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45FB519C20495C8A009D5806 /* Images.xcassets */; };
 		45FB51A020495C8A009D5806 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FB519E20495C8A009D5806 /* LaunchScreen.storyboard */; };
-		45FB51AC20495CB1009D5806 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB51AB20495CB1009D5806 /* KeyboardViewController.swift */; };
+		45FB51AC20495CB1009D5806 /* OpenKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB51AB20495CB1009D5806 /* OpenKeyboardViewController.swift */; };
 		45FB51B020495CB1009D5806 /* KeyboardKitExampleKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45FB51A920495CB1009D5806 /* KeyboardKitExampleKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		45FB51BB20495E1C009D5806 /* KeyboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FB517520495C73009D5806 /* KeyboardKit.framework */; };
 		45FB51BC20495E1C009D5806 /* KeyboardKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45FB517520495C73009D5806 /* KeyboardKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -234,7 +234,7 @@
 		45FB519F20495C8A009D5806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45FB51A120495C8A009D5806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45FB51A920495CB1009D5806 /* KeyboardKitExampleKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KeyboardKitExampleKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		45FB51AB20495CB1009D5806 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		45FB51AB20495CB1009D5806 /* OpenKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenKeyboardViewController.swift; sourceTree = "<group>"; };
 		45FB51AD20495CB1009D5806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45FB51C820495F41009D5806 /* KeyboardAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAlert.swift; sourceTree = "<group>"; };
 		45FB51CA20495F42009D5806 /* UIViewAutoresizing+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewAutoresizing+Extras.swift"; sourceTree = "<group>"; };
@@ -508,7 +508,7 @@
 				84FFACD92282350200FB4998 /* Keyboards */,
 				84511D39227110BC00904FE0 /* KB.swift */,
 				45FB51AD20495CB1009D5806 /* Info.plist */,
-				45FB51AB20495CB1009D5806 /* KeyboardViewController.swift */,
+				45FB51AB20495CB1009D5806 /* OpenKeyboardViewController.swift */,
 				DE214DD122EC470200724BF1 /* OpenAlfabeticKeyboardRU.swift */,
 				DE214DF322EC7A5500724BF1 /* OpenAlfabeticKeyboardEN.swift */,
 				DE214DF722EC937300724BF1 /* OpenNumpadKeyboard.swift */,
@@ -1167,7 +1167,7 @@
 				84289E6D22CF2B2D00D9B2AC /* DemoAutocompleteLabel.swift in Sources */,
 				84FFAD31228A1A6500FB4998 /* NumericKeyboard.swift in Sources */,
 				84FA44A5228B5321003C2054 /* DemoKeyboard.swift in Sources */,
-				45FB51AC20495CB1009D5806 /* KeyboardViewController.swift in Sources */,
+				45FB51AC20495CB1009D5806 /* OpenKeyboardViewController.swift in Sources */,
 				84FFAD33228A1BA600FB4998 /* SymbolicKeyboard.swift in Sources */,
 				84511D3A227110BC00904FE0 /* KB.swift in Sources */,
 				DE214DFA22EC9CD400724BF1 /* OpenKeyboardType.swift in Sources */,

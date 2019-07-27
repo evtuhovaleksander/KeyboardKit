@@ -43,7 +43,7 @@ open class StandardKeyboardActionHandler: NSObject, KeyboardActionHandler {
         tapHapticFeedback: HapticFeedback = .none,
         longPressHapticFeedback: HapticFeedback = .none,
         repeatHapticFeedback: HapticFeedback = .none) {
-        self.inputViewController = inputViewController
+        self.openInputViewController = inputViewController
         self.tapHapticFeedback = tapHapticFeedback
         self.longPressHapticFeedback = longPressHapticFeedback
         self.repeatHapticFeedback = repeatHapticFeedback
@@ -52,7 +52,7 @@ open class StandardKeyboardActionHandler: NSObject, KeyboardActionHandler {
     
     // MARK: - Dependencies
     
-    public private(set) weak var inputViewController: UIInputViewController?
+    public weak var openInputViewController: UIInputViewController?
     
     
     // MARK: - Properties
@@ -62,7 +62,7 @@ open class StandardKeyboardActionHandler: NSObject, KeyboardActionHandler {
     private let repeatHapticFeedback: HapticFeedback
     
     public var textDocumentProxy: UITextDocumentProxy? {
-        return inputViewController?.textDocumentProxy
+        return openInputViewController?.textDocumentProxy
     }
     
     
@@ -83,8 +83,11 @@ open class StandardKeyboardActionHandler: NSObject, KeyboardActionHandler {
     }
     
     open func tapAction(for action: KeyboardAction, view: UIView) -> GestureAction? {
-        return inputViewControllerAction(for: action)
-            ?? textDocumentProxyAction(for: action)
+        let inputAction = inputViewControllerAction(for: action)
+        let proxyAction = textDocumentProxyAction(for: action)
+        
+        return inputAction
+            ?? proxyAction
     }
     
     
@@ -131,11 +134,13 @@ private extension StandardKeyboardActionHandler {
     
     func inputViewControllerAction(for action: KeyboardAction) -> GestureAction? {
         guard let inputAction = action.standardInputViewControllerAction else { return nil }
-        return { inputAction(self.inputViewController) }
+        return { inputAction(self.openInputViewController) }
     }
     
     func textDocumentProxyAction(for action: KeyboardAction) -> GestureAction? {
         guard let proxyAction = action.standardTextDocumentProxyAction else { return nil }
-        return { proxyAction(self.textDocumentProxy) }
+        return {
+            proxyAction(self.textDocumentProxy)
+        }
     }
 }

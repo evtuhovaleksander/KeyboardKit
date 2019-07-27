@@ -16,7 +16,11 @@ class OpenKeyboardViewController: KeyboardInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: UIInputViewController())
+        if
+            keyboardActionHandler == nil,
+            let openInputViewController = openInputViewController {
+            keyboardActionHandler = OpenKeyboardActionHandler(openKeyboardViewController: self, inputViewController: openInputViewController)
+        }
 //        autocompleteBugFixTimer = createAutocompleteBugFixTimer()
     }
     
@@ -295,6 +299,8 @@ class OpenKeyboardActionHandler: StandardKeyboardActionHandler {
     
     override func handleTap(on action: KeyboardAction, view: UIView) {
         animateButtonTap(for: view)
+        print(openInputViewController)
+        openInputViewController = openKeyboardViewController.openInputViewController
         super.handleTap(on: action, view: view)
         switch action {
         case .shift: switchToAlphabeticKeyboard(.uppercased)

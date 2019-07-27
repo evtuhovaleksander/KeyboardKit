@@ -88,7 +88,9 @@ public extension KeyboardAction {
         case .none: return nil
         case .backspace: return { proxy in proxy?.deleteBackward() }
         case .capsLock: return nil
-        case .character(let char): return { proxy in proxy?.insertText(char) }
+        case .character(let char): return {
+            proxy in proxy?.insertText(char)
+            }
         case .command: return nil
         case .custom: return nil
         case .dismissKeyboard: return nil
